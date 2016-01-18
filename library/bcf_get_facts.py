@@ -39,7 +39,7 @@ options:
 '''
 
 EXAMPLES = '''
-- ntc_save_config: controller=10.1.1.100 username=admin password=bsn123
+- bcf_get_facts: controller=10.1.1.100 username=admin password=bsn123
 
 '''
 
@@ -48,7 +48,110 @@ bsnbcf:
     description: Dictionary of facts
     returned: always
     type: dictionary
-    sample: '/path/to/config.cfg'
+    sample:
+        "bsnbcf": {
+            "cluster": {
+                "controllers": [
+                    {
+                        "hostname": "10.10.12.20",
+                        "role": "active",
+                        "uptime": 33807223
+                    }
+                ],
+                "description": null,
+                "name": "bigswitchcluster",
+                "redundancy_status": {
+                    "msg": "Single node configured",
+                    "status": "standalone"
+                },
+                "virtual_ip": null
+            },
+            "fabric_nodes": [
+                {
+                    "dpid": "00:00:00:00:00:02:00:01",
+                    "fabric_state": "connected",
+                    "name": "R1L1",
+                    "role": "leaf",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:02:00:02",
+                    "fabric_state": "connected",
+                    "name": "R1L2",
+                    "role": "leaf",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:02:00:03",
+                    "fabric_state": "connected",
+                    "name": "R2L1",
+                    "role": "leaf",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:02:00:04",
+                    "fabric_state": "connected",
+                    "name": "R2L2",
+                    "role": "leaf",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:02:00:05",
+                    "fabric_state": "connected",
+                    "name": "R3L1",
+                    "role": "leaf",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:02:00:06",
+                    "fabric_state": "connected",
+                    "name": "R3L2",
+                    "role": "leaf",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:01:00:01",
+                    "fabric_state": "connected",
+                    "name": "S1",
+                    "role": "spine",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:01:00:02",
+                    "fabric_state": "connected",
+                    "name": "S2",
+                    "role": "spine",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                },
+                {
+                    "dpid": "00:00:00:00:00:01:00:03",
+                    "fabric_state": "connected",
+                    "name": "S3",
+                    "role": "spine",
+                    "sw": "Switch Light Virtual 3.5.0 2015-12-15.00:38-db7144c trusty-amd64"
+                }
+            ],
+            "hostname": "controller",
+            "platform": "Big Cloud Fabric Appliance 3.5.0 (bcf-3.5.0 #75)",
+            "summary": {
+                "controllers": 1,
+                "errors": 18,
+                "leaf_groups_configured": 3,
+                "leaves_configured": 6,
+                "leaves_connected": 6,
+                "overall_status": "NOT OK",
+                "spines_configured": 3,
+                "spines_connected": 3,
+                "tenants": 0,
+                "vswitches_connected": 0,
+                "warnings": 14
+            },
+            "vendor": "big_switch_networks",
+            "version": "3.5.0"
+        }
+    }
+}
+
 
 '''
 
