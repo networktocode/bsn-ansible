@@ -1,0 +1,13 @@
+---
+
+   - name: GATHER FACTS FROM BIG CLOUD FABRIC
+     hosts: bcf_test
+     connection: local
+
+     tasks:
+
+       - name: GATHER FACTS
+         bcf_get_facts: controller={{ controller_ip }} username=admin password=bsn123
+
+       - name: DUMP FACTS TO TERMINAL
+         debug: var=bsnbcf
