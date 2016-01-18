@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 This is a collection of Ansible modules for Big Switch products.  Today, we have a single module to gather *facts* for Big Cloud Fabric.
-=======
-This is a collection of Ansible modules for Big Switch projects.  Today, we have a single module to gather *facts* for Big Cloud Fabric.
->>>>>>> a7343020aff11357a2a8f09e418376b0f0c0d69f
 
 This is extremely easy to test using Big Switch's online labs: http://labs.bigswitch.com/home.  All you need to do is clone this repository and update the IP address found in the [hosts](hosts) file with the IP of your controller.
 
