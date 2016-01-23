@@ -1,24 +1,34 @@
 
-This is a collection of Ansible modules for Big Switch products.  Today, we have a single module to gather *facts* for Big Cloud Fabric.
+This is a collection of Ansible modules for Big Switch products.  There are two modules so far: one to gather *facts* for Big Cloud Fabric one another to gather *facts* for Big Monitoring Fabric.
 
-This is extremely easy to test using Big Switch's online labs: http://labs.bigswitch.com/home.  All you need to do is clone this repository and update the IP address found in the [hosts](hosts) file with the IP of your controller.
+> Due to API issues for BMF, there are few facts not being gathered.
+
+This is extremely easy to test using Big Switch's online labs: http://labs.bigswitch.com/home.  All you need to do is clone this repository and update the IP address found in the [hosts](hosts) file with the IP of your controller (for BCF, BMF, or both)
+
+The facts gathered can be used as inputs to other modules or used in templates to create documentation used for inventorying, assessments, etc.
+
+* The facts returned for Big Cloud Fabric are returned as a dictionary using the key `bsnbcf`.
+* The facts returned for Big Monitoring Fabric are returned as a dictionary using the key `bsnbmf`.
+
 
 [Example Playbook](bsn.yml):
 
 ```yaml
 ---
 
-   - name: GATHER FACTS FROM BIG CLOUD FABRIC
-     hosts: bcf_test
+   - name: GATHER FACTS FROM BIG SWITCH CONTROLLERS
+     hosts: bcf
      connection: local
 
      tasks:
 
        - name: GATHER FACTS
-         bcf_get_facts: controller={{ controller_ip }} username=admin password=bsn123
+         bcf_get_facts: controller={{ controller_ip }} username={{ un }} password={{ pwd }}
 
        - name: DUMP FACTS TO TERMINAL
          debug: var=bsnbcf
+
+
 ```
 
 Executing Playbook:
@@ -29,10 +39,10 @@ $ ansible-playbook -i hosts bsn.yml
 PLAY [GATHER FACTS FROM BIG CLOUD FABRIC] ************************************* 
 
 TASK: [GATHER FACTS] ********************************************************** 
-ok: [bcf_test]
+ok: [bcf_lab]
 
 TASK: [DUMP FACTS TO TERMINAL] ************************************************ 
-ok: [bcf_test] => {
+ok: [bcf_lab] => {
     "var": {
         "bsnbcf": {
             "cluster": {
@@ -138,7 +148,7 @@ ok: [bcf_test] => {
 }
 
 PLAY RECAP ******************************************************************** 
-bcf_test                   : ok=2    changed=0    unreachable=0    failed=0   
+bcf_lab                   : ok=2    changed=0    unreachable=0    failed=0   
 
 ```
 
