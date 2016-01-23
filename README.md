@@ -1,5 +1,5 @@
 
-This is a collection of Ansible modules for Big Switch products.  There are two modules so far: one to gather *facts* for Big Cloud Fabric one another to gather *facts* for Big Monitoring Fabric.
+This is a collection of Ansible modules for Big Switch products.  There are two modules so far: one to gather *facts* for Big Cloud Fabric and another to gather *facts* for Big Monitoring Fabric.
 
 > Due to API issues for BMF, there are few facts not being gathered.
 
