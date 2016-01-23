@@ -1,7 +1,7 @@
 
 This is a collection of Ansible modules for Big Switch products.  There are two modules so far: one to gather *facts* for Big Cloud Fabric and another to gather *facts* for Big Monitoring Fabric.
 
-> Due to API issues for BMF, there are few facts not being gathered.
+> Due to API issues for BMF, there are a few facts not being gathered for BMF.
 
 This is extremely easy to test using Big Switch's online labs: http://labs.bigswitch.com/home.  All you need to do is clone this repository and update the IP address found in the [hosts](hosts) file with the IP of your controller (for BCF, BMF, or both)
 
