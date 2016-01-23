@@ -1,2 +1,11 @@
 
-bcf_test controller_ip=52.91.137.171
+[all:vars]
+un=admin
+pwd=bsn123
+
+[bcf]
+
+bcf_lab controller_ip=52.91.137.171
+
+[bmf]
+bmf_lab controller_ip=54.161.99.67
